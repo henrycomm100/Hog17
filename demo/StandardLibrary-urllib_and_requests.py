@@ -26,3 +26,5 @@ print(response.elapsed)
 r = requests.post("http://httpbin.org/post", data={'key':'value'})
 print(f"this is a POST response with status code {r.status_code}")
 print(r.text)
+r.encoding = "utf-8"
+print(r.text)

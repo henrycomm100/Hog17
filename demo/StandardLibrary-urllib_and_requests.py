@@ -13,9 +13,9 @@ print(response.status)
 
 
 # 更加推荐使用Requests包 https://requests.readthedocs.io/en/master/
-import requests
+import requestsDemo
 
-response = requests.get("https://www.baidu.com")
+response = requestsDemo.get("https://www.baidu.com")
 print(response.status_code)
 print(response.encoding)
 print(response.url)
@@ -23,7 +23,7 @@ print(response.request)
 print(response.cookies)
 print(response.elapsed)
 
-r = requests.post("http://httpbin.org/post", data={'key':'value'})
+r = requestsDemo.post("http://httpbin.org/post", data={'key': 'value'})
 print(f"this is a POST response with status code {r.status_code}")
 print(r.text)
 r.encoding = "utf-8"

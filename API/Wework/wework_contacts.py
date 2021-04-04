@@ -1,21 +1,9 @@
 import requests
 
+from API.Wework.base import Base
 
-class WeworkContacts:
-    def __init__(self):
-        self.s = requests.Session()
-        self.token = self.get_token()
-        self.s.params = {"access_token": self.token}
 
-    def get_token(self):
-        url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken'
-        params = {
-            "corpid": "ww62b65a79dc7207eb",
-            "corpsecret": "gbaKXEt4FDWWXGiuYgeskVsgSE75Cciiv8Psom78dRk"
-        }
-        r = self.s.get(url, params=params)
-        return r.json()['access_token']
-
+class WeworkContacts(Base):
     def teardown(self):
         pass
 
@@ -27,7 +15,7 @@ class WeworkContacts:
             "mobile": mobile,
             "department": department
         }
-        r = self.s.post(url, json=data)
+        r = self.send('POST', url, json=data)
         return r.json()
 
     def get_contact(self, userid: str):
@@ -35,7 +23,7 @@ class WeworkContacts:
         params = {
             "userid": userid
         }
-        r = self.s.get(url, params=params)
+        r = self.send('GET', url, params=params)
 
         return r.json()
 
@@ -45,7 +33,7 @@ class WeworkContacts:
             "userid": userid,
             "name": name
         }
-        r = self.s.post(url, json=data)
+        r = self.send('POST', url, json=data)
         return r.json()
 
     def delete_contact(self, userid: str):
@@ -53,6 +41,6 @@ class WeworkContacts:
         params = {
             "userid": userid
         }
-        r = self.s.get(url, params=params)
+        r = self.send('GET', url, params=params)
 
         return r.json()

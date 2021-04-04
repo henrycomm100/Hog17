@@ -2,7 +2,7 @@ import random
 
 import pytest
 
-from API.Wework.WeworkContacts import WeworkContacts
+from API.Wework.wework_contacts import WeworkContacts
 
 
 class TestContacts:

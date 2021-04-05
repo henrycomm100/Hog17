@@ -12,7 +12,7 @@ class TestTouchActions:
         options = webdriver.ChromeOptions()
         options.add_experimental_option('w3c', False)
         self.driver = webdriver.Chrome(options=options)
-        self.driver.implicitly_wait(3)
+        self.driver.implicitly_wait(5)
         self.driver.maximize_window()
 
     def teardown(self):
@@ -24,17 +24,20 @@ class TestTouchActions:
         ele_keyword = self.driver.find_element_by_id("sb_form_q")
         ele_search = self.driver.find_element_by_id("sb_form_go")
 
-        print(self.driver.current_url)
-        print(self.driver.current_window_handle)
-
         ele_keyword.send_keys("henry")
 
         action = TouchActions(self.driver)
         action.tap(ele_search)
 
         action.perform()
+        sleep(5)
 
-        action.scroll_from_element(self.driver.find_element_by_id("sb_form_q"), 0, 10000).perform()
+        new_ele_keyword = self.driver.find_element_by_id("sb_form_q")
+        print(new_ele_keyword)
+        print(new_ele_keyword.is_enabled())
+        print(new_ele_keyword.is_selected())
+        print(new_ele_keyword.is_displayed())
+        action.scroll_from_element(new_ele_keyword, 0, 10000).perform()
         sleep(3)
 
     def test_bing_click2(self):

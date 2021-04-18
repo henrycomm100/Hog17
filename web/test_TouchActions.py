@@ -30,14 +30,12 @@ class TestTouchActions:
         action.tap(ele_search)
 
         action.perform()
-        sleep(5)
 
-        new_ele_keyword = self.driver.find_element_by_id("sb_form_q")
-        print(new_ele_keyword)
-        print(new_ele_keyword.is_enabled())
-        print(new_ele_keyword.is_selected())
-        print(new_ele_keyword.is_displayed())
-        action.scroll_from_element(new_ele_keyword, 0, 10000).perform()
+        # 一定要重新去定义一遍action，然后重新去获取一次元素，不然会一直报stale element reference的错误。可以分别命名成new_action, new_ele_keyword以示区分
+        action = TouchActions(self.driver)
+        ele_keyword = self.driver.find_element_by_id('sb_form_q')
+
+        action.scroll_from_element(ele_keyword, 0, 10000).perform()
         sleep(3)
 
     def test_bing_click2(self):

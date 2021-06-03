@@ -6,7 +6,13 @@ from selenium.webdriver.common.by import By
 
 class TestSeleniumGrid:
     def setup(self):
-        self.driver = webdriver.Remote(command_executor='http://127.0.0.1:5001/wd/hub')
+        # caps = {'browserName': os.getenv('BROWSER', 'chrome')}
+        # options = webdriver.ChromeOptions()
+        # options.add_argument("--headless")
+        # options.add_argument("--verbose")
+        # self.driver = webdriver.Remote(command_executor='http://127.0.0.1:4444',
+        #                                desired_capabilities=caps, options=options)
+        self.driver = webdriver.Remote(command_executor='http://localhost:4444')
         self.driver.implicitly_wait(2)
         self.driver.maximize_window()
 

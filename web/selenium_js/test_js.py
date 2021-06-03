@@ -2,9 +2,11 @@ from time import sleep
 
 from selenium.webdriver.common.keys import Keys
 from web.selenium_js.base import Base
+import pytest
 
 
 class TestJS(Base):
+    # @pytest.mark.skip
     def test_js_scroll(self):
         self.driver.get("https://www.baidu.com")
         self.driver.find_element_by_id("kw").send_keys("selenium")
@@ -19,14 +21,17 @@ class TestJS(Base):
         driver.refresh()
         print(driver.current_url)
         driver.execute_script("document.documentElement.scrollTop=10000")
-        sleep(3)
+        sleep(2)
         print(driver.execute_script("return document.documentElement.scrollTop"))
         self.driver.find_element_by_xpath("//*[@id='page']/div/a[10]").click()
-        sleep(3)
+        sleep(2)
+        print(self.driver.execute_script("return document.title, JSON.stringify(performance.timing)"))
+        print(self.driver.execute_script("return document.title; return JSON.stringify(performance.timing)"))  #
+        # 不能写成这样，这样子的话只有前面的一个return才会起作用。
 
     def test_datetime_component(self):
         self.driver.get("https://www.12306.cn/index/")
-        sleep(3)
+        sleep(2)
         self.driver.execute_script("document.getElementById('train_date').value = '2021-05-30'")
-        sleep(3)
+        sleep(2)
         print(self.driver.execute_script("return document.getElementById('train_date').value"))

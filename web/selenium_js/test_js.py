@@ -6,6 +6,7 @@ import pytest
 
 
 class TestJS(Base):
+    
     # @pytest.mark.skip
     def test_js_scroll(self):
         self.driver.get("https://www.baidu.com")

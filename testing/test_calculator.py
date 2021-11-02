@@ -1,3 +1,4 @@
+import allure
 import yaml
 
 from pythoncode.Calculator import Calculator
@@ -6,21 +7,25 @@ import pytest
 
 
 def get_data(func):
-    data = yaml.safe_load(open("../data/dataForCalculator1.yaml"))
-    func: str = func
+    data = yaml.safe_load(open("../data/dataForCalculator.yaml"))
+    # func: str = func
+    numbers = data[func]['number']
+    ids = data[func]['id']
     print(data)
     print(data['add']['number'])
     print(data['add']['id'])
     print(data['divide'])
-    return (data[func]['number'], data[func]['id'])
+    return numbers, ids
 
 
+@allure.epic("计算器功能")
 class TestCaculator:
 
     def setup(self):
         self.cal = Calculator()
         print("start the calculation ---")
 
+    @allure.feature("相加功能")
     @pytest.mark.search
     @pytest.mark.parametrize("a, b, result", get_data('add')[0], ids=get_data('add')[1])
     def test_add(self, a, b, result):
@@ -28,12 +33,15 @@ class TestCaculator:
         res = round(res, 2)
         assert result == res
 
+    @allure.feature("减法")
     def test_substract(self):
         assert 1 == self.cal.subtract(2, 1)
 
+    @allure.feature("乘法")
     def test_multiply(self):
         assert 2 == self.cal.multiply(1, 2)
 
+    @allure.feature("除法")
     @pytest.mark.parametrize("a, b, result", get_data('divide')[0], ids=get_data('divide')[1])
     def test_divide(self, a, b, result):
         try:

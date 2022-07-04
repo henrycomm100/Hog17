@@ -1,6 +1,8 @@
 
 
+import requestsDemo
 import urllib.request
+import requests
 
 # This function always returns an object which can work as a context manager and has the properties url, headers, and status. See urllib.response.addinfourl for more detail on these properties.
 # For HTTP and HTTPS URLs, this function returns a http.client.HTTPResponse object slightly modified.
@@ -11,11 +13,10 @@ print(response.status)
 # print(response.read())
 
 
-
 # 更加推荐使用Requests包 https://requests.readthedocs.io/en/master/
-import requestsDemo
 
-response = requestsDemo.get("https://www.baidu.com")
+
+response = requests.get("https://www.baidu.com")
 print(response.status_code)
 print(response.encoding)
 print(response.url)
@@ -23,7 +24,7 @@ print(response.request)
 print(response.cookies)
 print(response.elapsed)
 
-r = requestsDemo.post("http://httpbin.org/post", data={'key': 'value'})
+r = requests.post("http://httpbin.org/post", data={'key': 'value'})
 print(f"this is a POST response with status code {r.status_code}")
 print(r.text)
 r.encoding = "utf-8"

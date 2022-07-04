@@ -62,6 +62,10 @@ data = {
     "gender": "male"
 }
 
-data1 = json.dumps(data)
+print(type(data))  # 本身是dict类型
+data1 = json.dumps(data)  # 将其转换为str
 print(data1)
 print(type(data1))
+
+data2 = json.loads(data1)  # 将str重新转换为json
+print(type(data2))

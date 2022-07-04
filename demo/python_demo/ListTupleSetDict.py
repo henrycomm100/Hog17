@@ -24,7 +24,7 @@
 #     list_square.append(i ** 2)
 # print(list_square)
 #
-# # 列表推导式 list comprehensions
+# # 列表推导式 list.py comprehensions
 # list_square2 = [i ** 2 for i in range(1, 4)]
 # print("list_square2:", list_square2)
 #
@@ -74,40 +74,40 @@
 # print(tupleWithList2)
 
 
-# 集合 set
+# # 集合 set
 #
-# a = {1}
-# b = set()
-#
-# print(type(a))
-# print(type(b))
+a = {1}
+b = set()
 
-a = {1,2,3,4}
-b = {4,9,7}
-# print(a.union(b))
-# a.remove(3)
-# print(a)
-#
-# a.add(6)
-# print(a)
-# c = a.copy()
-# print(c)
-#
-# print(a.difference(b))
-print(a.intersection(b))
+print(type(a))
+print(type(b))
 
-c ="aslfjdalshfoawhefasd"
+# # 集合的 并集
+a = {1, 2, 3, 4}
+b = {4, 9, 7}
+print(a.union(b))
+a.remove(3)
+print(a)
+
+a.add(6)
+print(a)
+c = a.copy()
+print(c)
+
+print(a.difference(b))  # 差集 - 我有，你没有
+print(a.intersection(b))  # 集合的交集
+
+c = "aslfjdalshfoawhefasd"
 print(set(c))
 
-
 # 字典 Dictionary
-dict1 = {"a":1, "b": 2}
-dict2 = dict(a=1,b=2)
+dict1 = {"a": 1, "b": 2}
+dict2 = dict(a=1, b=2)
 
-# print(dict1)
-# print(type(dict1))
-# print(dict2)
-# print(type(dict2))
+print(dict1)
+print(type(dict1))
+print(dict2)
+print(type(dict2))
 
 print(dict1.keys())
 print(dict1.values())

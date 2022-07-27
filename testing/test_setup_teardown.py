@@ -41,10 +41,10 @@ class TestDemo:
 
     # 每个类里面的方法前后分别执行 setup, teardown
     def setup(self):
-        print("TestDemo setup")
+        print("TestDemo setup method")
 
     def teardown(self):
-        print("TestDemo teardown")
+        print("TestDemo teardown method")
 
     def test_demo1(self):
         print("test demo1")

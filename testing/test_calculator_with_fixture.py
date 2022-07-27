@@ -18,51 +18,41 @@ def get_data(func):
     return numbers, ids
 
 
+@pytest.fixture()
+def get_instance():
+    print("start the calculation ---")
+    cal = Calculator()
+    yield cal
+    print("calculation completed ----")
+
+
 @allure.epic("计算器功能")
 class TestCaculator:
-
-    def setup(self):
-        self.cal = Calculator()
-        print("start the calculation ---")
 
     @allure.feature("相加功能")
     @pytest.mark.search
     @pytest.mark.parametrize("a, b, result", get_data('add')[0], ids=get_data('add')[1])
-    def test_add(self, a, b, result):
-        res = self.cal.add(a, b)
+    def test_add(self, get_instance, a, b, result):
+        res = get_instance.add(a, b)
         res = round(res, 2)  # 需要进行精度控制，比如 0.1+0.2会算出来0.30000000000000004，直接进行比较会出现不匹配的问题
         assert result == res
 
     @allure.feature("减法")
-    def test_substract(self):
-        assert 1 == self.cal.subtract(2, 1)
+    def test_substract(self, get_instance):
+        assert 1 == get_instance.subtract(2, 1)
 
     @allure.feature("乘法")
-    def test_multiply(self):
-        assert 2 == self.cal.multiply(1, 2)
+    def test_multiply(self, get_instance):
+        assert 2 == get_instance.multiply(1, 2)
 
     @allure.feature("除法")
     @pytest.mark.parametrize("a, b, result", get_data('divide')[0], ids=get_data('divide')[1])
-    def test_divide(self, a, b, result):
+    def test_divide(self, get_instance, a, b, result):
         try:
-            res = self.cal.divide(a, b)
+            res = get_instance.divide(a, b)
             res = round(res, 2)
             assert result == res
             print(result)
         except Exception as e:
             print(e)
             print("You can't divide by zero")
-
-        # if b == 0:
-        #     try:
-        #         self.cal.divide(a, b)
-        #     except ZeroDivisionError as e:
-        #         print("You can't divide by zero")
-        # else:
-        #     res = self.cal.divide(a, b)
-        #     res = round(res, 2)
-        #     assert result == res
-        #     print(result)
-
-    def teardown(self):
-        print("calculation completed ----")

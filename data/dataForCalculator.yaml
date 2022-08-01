@@ -10,7 +10,7 @@ add:
     - [ 0.2,0.3,0.5 ]
     - [ -0.1,0.1,0 ]
     - [ -0.2,-0.3,-0.5 ]
-  id: [ 'smallint', 'bigint', 'add_zero', 'negative', 'result0','float1','float2','float3','float_result0',
+  id: [ 'smallint小数字', 'bigint', 'add_zero', 'negative', 'result0','float1','float2','float3','float_result0',
         'float_negative' ]
 
 divide:

@@ -7,7 +7,8 @@ import pytest
 
 
 def get_data(func):
-    data = yaml.safe_load(open("../data/dataForCalculator.yaml"))
+    with open("../data/dataForCalculator.yaml", encoding='utf-8') as f:
+        data = yaml.safe_load(f)
     # func: str = func
     numbers = data[func]['number']
     ids = data[func]['id']

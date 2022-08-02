@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pytest_encode_henryhappier"
+name = "pytest_encode"
 version = "0.0.1"
 authors = [
     { name = "Henry Ma", email = "henry.ma@comm100.com" },
@@ -17,6 +17,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+
+[project.entry-points."pytest11"]
+pytest_encode = 'pytest_encode'
+
 
 [project.urls]
 "Homepage" = "https://github.com/pypa/sampleproject"

@@ -28,6 +28,7 @@ class TestRequest:
         r = requests.post('https://httpbin.testing-studio.com/post', data=payload)
         print(r.text)
         assert r.status_code == 200
+        assert r.json()['form']['name'] == 'henry'
 
     def test_post_json(self):
         payload = {
@@ -37,6 +38,8 @@ class TestRequest:
         r = requests.post('https://httpbin.testing-studio.com/post', json=payload)
         print(r.text)
         assert r.status_code == 200
+        assert r.json()['json']['name'] == 'henry'
+        assert r.json()['json']['password'] == '123'
 
     def test_file_upload(self):
         files = {'file': open('chatbots3.json', 'rb')}

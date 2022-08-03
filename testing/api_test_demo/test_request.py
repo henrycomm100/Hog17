@@ -1,3 +1,4 @@
+import jsonpath
 import requests
 
 
@@ -79,3 +80,12 @@ class TestRequest:
         print(r.cookies.keys())
         print(r.text)
         assert r.status_code == 200
+
+    def test_hogwarts_json(self):
+        r = requests.get('https://ceshiren.com/categories.json')
+        # print(r.json())
+        # print(r.json()['category_list']['categories'][0])
+        assert r.json()['category_list']['categories'][0]['name'] == '提问区'
+
+        print(jsonpath.jsonpath(r.json(), '$..name'))
+        assert jsonpath.jsonpath(r.json(), '$..name')[0] == '提问区'

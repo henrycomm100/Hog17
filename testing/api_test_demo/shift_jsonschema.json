@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "id",
+    "name",
+    "timeZone",
+    "autoDetectDayLightSavingsTime",
+    "agentIds",
+    "departmentIds",
+    "shiftHolidays",
+    "shiftWorkingHours"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "default": "",
+      "title": "The id Schema",
+      "examples": [
+        "b9b665d7-1399-4956-a3da-eef10803ed69"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "default": "",
+      "title": "The name Schema",
+      "examples": [
+        "shift 23"
+      ]
+    },
+    "timeZone": {
+      "type": "string",
+      "default": "",
+      "title": "The timeZone Schema",
+      "examples": [
+        "China Standard Time"
+      ]
+    },
+    "autoDetectDayLightSavingsTime": {
+      "type": "boolean",
+      "default": false,
+      "title": "The autoDetectDayLightSavingsTime Schema",
+      "examples": [
+        false
+      ]
+    },
+    "agentIds": {
+      "type": "array",
+      "default": [],
+      "title": "The agentIds Schema",
+      "items": {},
+      "examples": [
+        []
+      ]
+    },
+    "departmentIds": {
+      "type": "array",
+      "default": [],
+      "title": "The departmentIds Schema",
+      "items": {},
+      "examples": [
+        []
+      ]
+    },
+    "shiftHolidays": {
+      "type": "array",
+      "default": [],
+      "title": "The shiftHolidays Schema",
+      "items": {},
+      "examples": [
+        []
+      ]
+    },
+    "shiftWorkingHours": {
+      "type": "array",
+      "default": [],
+      "title": "The shiftWorkingHours Schema",
+      "items": {},
+      "examples": [
+        []
+      ]
+    }
+  },
+  "examples": [
+    {
+      "id": "b9b665d7-1399-4956-a3da-eef10803ed69",
+      "name": "shift 23",
+      "timeZone": "China Standard Time",
+      "autoDetectDayLightSavingsTime": false,
+      "agentIds": [],
+      "departmentIds": [],
+      "shiftHolidays": [],
+      "shiftWorkingHours": []
+    }
+  ]
+}

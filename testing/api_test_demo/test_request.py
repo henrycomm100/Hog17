@@ -50,37 +50,6 @@ class TestRequest:
         print(r.content)
         assert r.status_code == 201
 
-    def test_headers(self):
-        headers = {
-            'user-agent': 'my-app/1.0.1'
-        }
-        r = requests.get('https://httpbin.testing-studio.com/get', headers=headers)
-        print('status code - ', r.status_code)
-        print(r.text)
-        print(r.content)
-        assert r.status_code == 200
-
-    def test_get_cookies(self):
-        session = requests.session()
-        r = session.get('https://www.google.com')
-        print('status code - ', r.status_code)
-        print(r.cookies)
-        print(r.cookies.get_dict())
-        print(r.cookies.keys())
-        print(r.text)
-        assert r.status_code == 200
-
-    def test_set_cookies(self):
-        cookies = dict(
-            token='33eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNyc2Etc2hhMjU2IiwidHlwIjoiSldUIn0.eyJqdGkiOiJjNDEzODQwYy02NmI3LTQwNDMtYTI0OC1mYjY4M2VjM2ZlZWUiLCJhZ2VudElkIjoiMGIxMDVmODAtYWVhMC00ZTQxLThmMDQtYjEyYThhNDI0ZTQ0Iiwic2l0ZUlkIjoiMTAxMDAwMDciLCJ0aHVtYnByaW50IjoiOEE2OEE5OEFDODQxQjVBNzk4RDlGQTUxNjVBRTQ3OTc0RURGQjJGNiIsInN1Y2Nlc3MiOiJUcnVlIiwibmJmIjoxNjM0NjI0NTE2LCJleHAiOjE2MzQ2MzE3MTYsImlzcyI6ImRhc2gxMS5jb21tMTAwLmlvIn0.60u9z1o7_NAva8TcrzLtfG3pUBSrrqpAvn1L949rwraCK_Ue5jkEQIfkr_JMcRamNJlmXorjgMUdQ4DBEBZlBChUrc2FTCY6z1fGcreSBbz28gbs-DnCFUhYOlv1us6AWpUyQREhCFb1tStFcELOTxaEoFO73VxWg3_Dcf-DO6TK4qyukiuIlwyx335L63WXetkTb6r4gzgHyCBl63gG6P8FDvpUsUfxq_jahZMIZKNJIANJKs6wfbERwjblsssDMfDi0KY9RnI7fDYYMOPuV2CuIV54QctdokozWGC0xEY632mQbzxWws6goU_p9ICuI3Szie6lpZvAP77hQiY0xg')
-        session = requests.session()
-        r = requests.get('https://dash11.comm100.io/ui/10100007/livechat/maximumon/', cookies=cookies)
-        print('status code - ', r.status_code)
-        print(r.cookies)
-        print(r.cookies.keys())
-        print(r.text)
-        assert r.status_code == 200
-
     def test_hogwarts_json(self):
         r = requests.get('https://ceshiren.com/categories.json')
         # print(r.json())

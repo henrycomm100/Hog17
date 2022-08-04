@@ -23,7 +23,7 @@ class TestShifts:
             "shiftName": "shift 23"
         }
         with open('shift.mustache', 'r') as f:
-            data2 = json.loads(chevron.render(f.read(), data))
+            data2 = json.loads(chevron.render(f.read(), data))  # 将mustache模板引擎转换后的字符串转成json, 然后再传入json字段
             print(data2)
             r = requests.post(self.shift_url, auth=self.auth, json=data2)
             print(r.json())
@@ -39,10 +39,21 @@ class TestShifts:
             print(data2)
             r = requests.post(self.shift_url, auth=self.auth, data=data2,
                               headers=self.headers)  # 必须要添加这个headers, 不然会有报错
+
             print(r.json())
             assert r.status_code == 201
 
     def test_create_shift_sanity(self):
+        data = {
+            "timeZone": "China Standard Time",
+            "name": "shift 23"
+        }
+
+        r = requests.post(self.shift_url, auth=self.auth, json=data)
+        print(r.json())
+        assert r.status_code == 201
+
+    def test_create_shift_sanity_using_data(self):
         data = {
             "timeZone": "China Standard Time",
             "name": "shift 23"

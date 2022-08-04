@@ -1,7 +1,5 @@
 import random
-
 import pytest
-
 from API.Wework.wework_contacts import WeworkContacts
 
 
@@ -11,7 +9,6 @@ class TestContacts:
 
     def setup_class(self):
         self.contact = WeworkContacts()
-
         self.mobile = "+86 13800000000"
         self.department = [1]
 

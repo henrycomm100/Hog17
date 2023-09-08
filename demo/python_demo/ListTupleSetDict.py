@@ -73,44 +73,50 @@
 #
 # print(tupleWithList2)
 
+key = ["a", "b", "c"]
+value = [4, 5, 6]
+z_zip = zip(key,value)
+print(z_zip)
+print(list(z_zip))
+# [('a', 4), ('b', 5), ('c', 6)]
 
-# # 集合 set
+# # # 集合 set
+# #
+# a = {1}
+# b = set()
 #
-a = {1}
-b = set()
-
-print(type(a))
-print(type(b))
-
-# # 集合的 并集
-a = {1, 2, 3, 4}
-b = {4, 9, 7}
-print(a.union(b))
-a.remove(3)
-print(a)
-
-a.add(6)
-print(a)
-c = a.copy()
-print(c)
-
-print(a.difference(b))  # 差集 - 我有，你没有
-print(a.intersection(b))  # 集合的交集
-
-c = "aslfjdalshfoawhefasd"
-print(set(c))
-
-# 字典 Dictionary
-dict1 = {"a": 1, "b": 2}
-dict2 = dict(a=1, b=2)
-
-print(dict1)
-print(type(dict1))
-print(dict2)
-print(type(dict2))
-
-print(dict1.keys())
-print(dict1.values())
-
-print(dict1.pop("a"))
-print(dict1)
+# print(type(a))
+# print(type(b))
+#
+# # # 集合的 并集
+# a = {1, 2, 3, 4}
+# b = {4, 9, 7}
+# print(a.union(b))
+# a.remove(3)
+# print(a)
+#
+# a.add(6)
+# print(a)
+# c = a.copy()
+# print(c)
+#
+# print(a.difference(b))  # 差集 - 我有，你没有
+# print(a.intersection(b))  # 集合的交集
+#
+# c = "aslfjdalshfoawhefasd"
+# print(set(c))
+#
+# # 字典 Dictionary
+# dict1 = {"a": 1, "b": 2}
+# dict2 = dict(a=1, b=2)
+#
+# print(dict1)
+# print(type(dict1))
+# print(dict2)
+# print(type(dict2))
+#
+# print(dict1.keys())
+# print(dict1.values())
+#
+# print(dict1.pop("a"))
+# print(dict1)

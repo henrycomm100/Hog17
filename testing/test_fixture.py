@@ -1,9 +1,13 @@
+import pdb
 import pytest
 
 
 @pytest.fixture(autouse=True)
 def login():
-    print('login')
+    print('\n ======== login===========')
+    a = 3
+    yield a
+    print('\n ======== logout ======== ')
 
 
 @pytest.fixture()
@@ -16,17 +20,19 @@ def get_username():
 
 
 def test_cart(login):
-    print('cart')
+    print('\n ======== cart ======== ')
+    pdb.set_trace()
+    print('after pdb breakpoint')
 
 
-def test_order(login, get_username):
-    print('order')
+# def test_order(login, get_username):
+#     print('order')
 
 
-def test_search():
-    print('search')
+# def test_search():
+#     print('search')
 
 
-@pytest.mark.usefixtures('login')
-def test_change_password():
-    print('change password')
+# @pytest.mark.usefixtures('login')
+# def test_change_password():
+#     print('change password')

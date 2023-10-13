@@ -7,3 +7,4 @@ test.log
 /.vscode/settings.json
 test-output.xml
 .vscode
+report/

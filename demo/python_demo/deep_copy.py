@@ -29,3 +29,13 @@ print('dict_c = ', dict_c)
 print('dict_d = ', dict_d)
 print('type(dict_a) = ', type(dict_a))
 print('type(dict_d) = ', type(dict_d))
+
+# # loop 5 times to print the same result
+# for i in range(5):
+#     a = 5
+#     print('i = ', i)
+#     print('a = ', a)
+#     print('-----------------------------')
+#     a = a+1
+
+# print(a)

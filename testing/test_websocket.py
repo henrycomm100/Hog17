@@ -1,0 +1,16 @@
+from websocket import create_connection
+
+ws = create_connection("wss://commonserviceidc.testing.comm100dev.io/webrtcSignalingService/signaling.ashx?chatId=a21ac070-bc3a-4c21-b71b-11c4c33e8188")
+print(ws.recv())
+print("Sending 'Hello from pytest'...")
+ws.send("Hello from pytest")
+print("Sent")
+print("Receiving...")
+result =  ws.recv()
+print("Received '%s'" % result)
+print("Sending 'bye from pytest'...")
+ws.send("bye from pytest")
+print("Sent")
+res3 = ws.recv()
+print("Received '%s'" % res3)
+ws.close()

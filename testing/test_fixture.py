@@ -17,6 +17,11 @@ def get_username():
     return name
 
 
+def get_henry(get_username):
+    name = 'henry'
+    print(name)
+    return name
+
 
 
 def test_cart(login):
